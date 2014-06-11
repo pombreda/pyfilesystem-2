@@ -578,6 +578,7 @@ class MemoryFS(FS):
         info['accessed_time'] = dir_entry.accessed_time
 
         if dir_entry.isdir():
+            info['size'] = 0
             info['st_mode'] = 0755 | stat.S_IFDIR
         else:
             info['size'] = len(dir_entry.data or b(''))

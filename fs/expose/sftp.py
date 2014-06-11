@@ -132,7 +132,7 @@ class SFTPServerInterface(paramiko.SFTPServerInterface):
 
         stat = paramiko.SFTPAttributes()
         stat.filename = basename(path).encode(self.encoding)
-        stat.st_size = info.get("size")
+        stat.st_size = info.get("size", 0)
 
         if 'st_atime' in info:
             stat.st_atime = info.get('st_atime')
